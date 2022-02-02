@@ -1,5 +1,5 @@
 import './App.css';
-import Categories from '/Users/steven/Documents/my-app/src/Categories.css';
+import Categories from './Categories';
 import config_json from './review_temp/config_momo.json'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       </div>
 
       <footer className="App-footer">
-        <p className="signature">Steven,Pierre</p>
+        <p className="signature">Steven,Pierre if you like this check out https://vojtastruhar.github.io/steam-review-template/ </p>
       </footer>
     </div>
   );
