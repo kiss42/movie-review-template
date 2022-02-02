@@ -1,0 +1,127 @@
+{
+    "name": "Pokemom first movie",
+    "categories": [
+        {
+            "title": "Visuals",
+            "type": "radio",
+            "options": [
+                "You forget what reality is",
+                "Beautiful",
+                "Good",
+                "Decent",
+                "Bad",
+                "Dont look too long at it",
+                "Straight ass"
+            ]
+        },
+        {
+            "title": "Plot",
+            "type": "radio",
+            "options": [
+                "Very good",
+                "Good",
+                "It's just ok",
+                "Mehh",
+                "Watch paint dry instead",
+                "Just don't"
+            ]
+        },
+        {
+            "title": "Audio",
+            "type": "radio",
+            "options": [
+                "Eargasm",
+                "Very good",
+                "Good",
+                "Not too bad",
+                "Bad",
+                "I'm now deaf"
+            ]
+        },
+        {
+            "title": "Audience",
+            "type": "check",
+            "options": [
+                "Kids",
+                "Teens",
+                "Adults",
+                "Grandma"
+            ]
+        },
+        
+        {
+            "title": "Acting",
+            "type": "radio",
+            "options": [
+                "Avatar the last airbender movie bad acting",
+                "Dragon Ball Evolution TERRIBLE ACTING",
+                "Not bad",
+                "Genuinely enjoyed it",
+                "I want to fight the person who played them because now i cant tell them apart"
+            ]
+        },
+        {
+            "title": "Characters",
+            "type": "radio",
+            "options": [
+                "Nothing to really see",
+                "They were cool",
+                "Ok",
+                "Hmm I think I felt something",
+                "OMG WHY THEY PLAY WITH MY HEART LIKE THAT"
+            ]
+        },
+        {
+            "title": "World Building",
+            "type": "radio",
+            "options": [
+                "No Story",
+                "Some lore",
+                "Average",
+                "Good",
+                "Lovely",
+                "It'll replace your life"
+            ]
+        },
+        {
+            "title": "Length",
+            "type": "radio",
+            "options": [
+                "Long enough for a cup of coffee",
+                "Short",
+                "Average",
+                "Long",
+                "To infinity and beyond"
+            ]
+        },
+        {
+            "title": "Should I see",
+            "type": "radio",
+            "options": [
+                "YES GET OFF YOUR ASS AND WATCH",
+                "Worth the price",
+                "Wait for disney overlord to buy the studio",
+                "Strean it",
+                "Not recommended",
+                "Just send money to my cash app and ill tell u the whole movie in a Gilbert Gottfried voice"
+            ]
+        },
+     
+        {
+            "title": "? / 10",
+            "type": "radio",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ]
+        }
+    ]
+}
