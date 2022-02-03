@@ -1,96 +1,104 @@
-import './Categories.css';
-import React, { useState } from 'react';
-import CheckboxOption from './components/CheckboxOption';
-import RadioOption from './components/RadioOption';
-import { Button } from '@material-ui/core';
+import "./Categories.css";
+import React, { useState } from "react";
+import CheckboxOption from "./components/CheckboxOption";
+import RadioOption from "./components/RadioOption";
+import TextInput from "./components/TextInput";
+import { Button } from "@material-ui/core";
 
 export default function Categories(props) {
+  const [reviewInfo, setReviewInfo] = useState("");
 
-    const [reviewInfo, setReviewInfo] = useState("")
-
-    const create_categories = () => {
-        var array = []
-        for (let i = 0; i < props.props.length; i++) {
-            const element = props.props[i];
-            if (element.type === "radio") {
-                array.push(<RadioOption props={element} />)
-            } else if (element.type === "check") {
-                array.push(<CheckboxOption props={element} />)
-            }
-        }
-        return array
+  const create_categories = () => {
+    var array = [];
+    for (let i = 0; i < props.props.length; i++) {
+      const element = props.props[i];
+      if (element.type === "radio") {
+        array.push(<RadioOption props={element} />);
+      } else if (element.type === "check") {
+        array.push(<CheckboxOption props={element} />);
+      }
     }
-    const categoryComponents = create_categories()
+    return array;
+  };
+  const categoryComponents = create_categories();
 
-    const generate_review = () => {
-        var localReviewString = ""
+  const generate_review = () => {
+    var localReviewString = "";
 
-        function appendCategoryTitle(title) {
-            localReviewString += "---{ " + title + " }---\n"
-        }
+    function appendCategoryTitle(title) {
+      localReviewString += "---{ " + title + " }---\n";
+    }
 
-        function appendOption(option, checked) {
-            localReviewString += (checked ? "☑ " : "☐ ") + option + "\n"
-        }
+    function appendOption(option, checked) {
+      localReviewString += (checked ? "☑ " : "☐ ") + option + "\n";
+    }
 
-        for (let i = 0; i < props.props.length; i++) {
-            const categoryJson = props.props[i];
+    appendCategoryTitle("Movie Name");
+    localReviewString += `${sessionStorage.getItem("Movie Name")}\n`;
+    localReviewString += "\n";
 
-            appendCategoryTitle(categoryJson.title)
+    for (let i = 0; i < props.props.length; i++) {
+      const categoryJson = props.props[i];
 
-            // With radio, only one option is selected
-            if (categoryJson.type === "radio") {
-                const saved = sessionStorage.getItem(categoryJson.title) || ""
-                categoryJson.options.forEach(option => {
-                    appendOption(option, saved === option)
-                });
-            } else if (categoryJson.type === "check") {
-                // With checkbox, multiple options can be selected
-                const selectedOptions = JSON.parse(sessionStorage.getItem(categoryJson.title) || "[]")
-                categoryJson.options.forEach(option => {
-                    appendOption(option, selectedOptions.includes(option))
-                });
-            } else {
-                localReviewString += "ERROR - bad category type. (radio | check)\n"
-            }
+      appendCategoryTitle(categoryJson.title);
 
-            // newline under every category
-            localReviewString += "\n"
-        }
-
-        // Credit 
-        localReviewString += "\nGrab this review template here!  https://kiss42.github.io/my-app//\n"
-
-        navigator.clipboard.writeText(localReviewString).then(function () {
-            console.log('Async: Copying to clipboard was successful!');
-            setReviewInfo("The review has been copied into your clipboard!")
-        }, function (err) {
-            console.error('Async: Could not copy text: ', err);
-            setReviewInfo("Copying into clipboard failed. New window with the review should appear, please, copy it manually.")
-            check_review_in_new_window(localReviewString)
+      // With radio, only one option is selected
+      if (categoryJson.type === "radio") {
+        const saved = sessionStorage.getItem(categoryJson.title) || "";
+        categoryJson.options.forEach((option) => {
+          appendOption(option, saved === option);
         });
+      } else if (categoryJson.type === "check") {
+        // With checkbox, multiple options can be selected
+        const selectedOptions = JSON.parse(sessionStorage.getItem(categoryJson.title) || "[]");
+        categoryJson.options.forEach((option) => {
+          appendOption(option, selectedOptions.includes(option));
+        });
+      } else {
+        localReviewString += "ERROR - bad category type. (radio | check)\n";
+      }
+
+      // newline under every category
+      localReviewString += "\n";
     }
 
-    const check_review_in_new_window = (text) => {
-        var newWin = window.open('url', 'Movie review', 'height=700,width=500,scrollbars=yes,resizable=yes');
-        newWin.document.write(String.raw`${text.replaceAll("\n", "<br/>")}`);
-    }
+    // Credit
+    localReviewString += "\nGrab this review template here!  https://kiss42.github.io/my-app//\n";
 
-    return (
+    navigator.clipboard.writeText(localReviewString).then(
+      function () {
+        console.log("Async: Copying to clipboard was successful!");
+        setReviewInfo("The review has been copied into your clipboard!");
+      },
+      function (err) {
+        console.error("Async: Could not copy text: ", err);
+        setReviewInfo(
+          "Copying into clipboard failed. New window with the review should appear, please, copy it manually."
+        );
+        check_review_in_new_window(localReviewString);
+      }
+    );
+  };
+
+  const check_review_in_new_window = (text) => {
+    var newWin = window.open("url", "Movie review", "height=700,width=500,scrollbars=yes,resizable=yes");
+    newWin.document.write(String.raw`${text.replaceAll("\n", "<br/>")}`);
+  };
+
+  return (
+    <div>
+      <div className="centered">
         <div>
-            <div className="centered">
-                <div>
-                    {categoryComponents}
-                </div>
-            </div>
-            <div className="button-centered">
-                <Button variant="contained" color="primary" onClick={generate_review}>
-                    Generate Movie Review
-                </Button>
-                {reviewInfo !== "" &&
-                    <p className="review" >{reviewInfo}</p>
-                }
-            </div>
+          <TextInput title="Movie Name" />
+          {categoryComponents}
         </div>
-    )
+      </div>
+      <div className="button-centered">
+        <Button variant="contained" color="primary" onClick={generate_review}>
+          Generate Movie Review
+        </Button>
+        {reviewInfo !== "" && <p className="review">{reviewInfo}</p>}
+      </div>
+    </div>
+  );
 }
