@@ -17,6 +17,7 @@ function App() {
       <footer className="App-footer">
         <p className="signature">
           Steven,Pierre if you like this check out https://vojtastruhar.github.io/steam-review-template/{" "}
+          <a href="https://vojtastruhar.github.io/steam-review-template/"> here</a>
         </p>
       </footer>
     </div>
