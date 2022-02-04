@@ -26,7 +26,7 @@ export default function Categories(props) {
     var localReviewString = "";
 
     function appendCategoryTitle(title) {
-      localReviewString += "---{ " + title + " }---\n";
+      localReviewString += "** " + title + " **\n";
     }
 
     function appendOption(option, checked) {
