@@ -34,7 +34,7 @@ export default function Categories(props) {
     }
 
     appendCategoryTitle("Movie/Tv Show Name");
-    localReviewString += `${sessionStorage.getItem("Movie/Tv Show  Name")}\n`;
+    localReviewString += `${sessionStorage.getItem("Movie/Tv Show Name")}\n`;
     localReviewString += "\n";
 
     for (let i = 0; i < props.props.length; i++) {
