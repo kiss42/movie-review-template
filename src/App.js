@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2 className="App-header">{"Movie Template "}</h2>
+        <h2 className="App-header">{"Movie & TV Template "}</h2>
         {/* <p className="App-header">☑ Awesome</p> */}
       </header>
 

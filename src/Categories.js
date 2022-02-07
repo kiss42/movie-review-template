@@ -33,8 +33,8 @@ export default function Categories(props) {
       localReviewString += (checked ? "☑ " : "☐ ") + option + "\n";
     }
 
-    appendCategoryTitle("Movie Name");
-    localReviewString += `${sessionStorage.getItem("Movie Name")}\n`;
+    appendCategoryTitle("Movie/Tv Show Name");
+    localReviewString += `${sessionStorage.getItem("Movie/Tv Show  Name")}\n`;
     localReviewString += "\n";
 
     for (let i = 0; i < props.props.length; i++) {
@@ -89,7 +89,7 @@ export default function Categories(props) {
     <div>
       <div className="centered">
         <div>
-          <TextInput title="Movie Name" />
+          <TextInput title="Movie/Tv Show Name" />
           {categoryComponents}
         </div>
       </div>
