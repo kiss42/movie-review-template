@@ -1,6 +1,6 @@
 import "./App.css";
 import Categories from "./Categories";
-import config_json from "./review_temp/config_momo.json";
+import config_json from "./review_temp/config.json";
 
 function App() {
   return (

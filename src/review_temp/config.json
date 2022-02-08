@@ -19,7 +19,7 @@
             "title": "Plot",
             "type": "radio",
             "options": [
-                "Amazing plot",
+                "Amazing plot ",
                 "its a nice story",
                 "It's just ok",
                 "Mehh",
@@ -45,8 +45,7 @@
             "options": [
                 "Kids",
                 "Teens",
-                "Adults",
-                "👵🏿"
+                "Adults"
             ]
         },
         
@@ -77,11 +76,11 @@
             "title": "Length",
             "type": "radio",
             "options": [
-                "Long As HEll but worth it every min",
+                "Long As Hell but worth it every min",
                 "Not that long but good",
                 "Average",
                 "This shit short",
-                "damn i just blinked and its"
+                "damn i just blinked and its gone"
             ]
         },
         {
