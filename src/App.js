@@ -1,5 +1,6 @@
 import "./App.css";
 import Categories from "./Categories";
+import Commentsection from "./components/commentsection";
 import config_json from "./review_temp/config.json";
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
       <div className="categories-container">
         <Categories props={config_json.categories} />
       </div>
-
+        <div className="Comment-section">
+          <Commentsection props={Commentsection} />
+        </div>
       <footer className="App-footer">
         <p className="signature">
           Steven,Pierre if you like this check out {" "} 

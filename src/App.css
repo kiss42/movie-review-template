@@ -44,6 +44,13 @@ div.categories-container {
   margin-bottom: 8px;
 }
 
+/*Commennt section */
+.Comment-section {
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+
 /* footer */
 .App-footer {
   background-color: #1e2127;
