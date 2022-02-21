@@ -91,11 +91,12 @@ export default function Categories(props) {
         <div>
           <TextInput title="Movie/Tv Show Name" />
           {categoryComponents}
+          <TextInput title="comment section" /> 
         </div>
       </div>
       <div className="button-centered">
         <Button variant="contained" color="primary" onClick={generate_review}>
-          Generate Movie Review
+          Generate Movie and TV Review
         </Button>
         {reviewInfo !== "" && <p className="review">{reviewInfo}</p>}
       </div>

@@ -49,6 +49,7 @@ div.categories-container {
   align-items: center;
   flex-direction: column;
   margin-bottom: 4px;
+  display: flex;
 }
 
 /* footer */

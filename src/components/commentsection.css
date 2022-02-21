@@ -1,0 +1,19 @@
+p.inner {
+    background-color: tomato;
+  };
+  
+  div.section {
+    text-align: left;
+    align-items: left;
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 2px;
+  };
+  
+  .centered {
+    height: 10vh; /* Magic here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
