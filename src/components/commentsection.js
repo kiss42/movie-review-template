@@ -1,23 +1,24 @@
 import React from "react";
-import TextInput from '@mui/material/TextField';
-import { makeStyles } from "@material-ui/core";
+import TextField from '@mui/material/TextField';
+import { useWindowWidth } from "@react-hook/window-size";
+import './Option.css';
 
 
-const useStyles = makeStyles({
-    field: {
-      marginTop: 20,
-      marginBottom: 20,
-      display: 'block'
-    }
-})
 
-export default function CommentField() {
-  const classes = useStyles()
+
+export default function CommentField(props) {
+  const windowWidth=useWindowWidth();
+  const [textValue, setTextValue] = React.useState("");
+  const updateText = (event) => {
+    setTextValue(event.target.value);
+    sessionStorage.setItem(props.title, event.target.value);
+  };
 
 return( 
-<TextInput 
-textAlign={'center'} 
-placeholder="Comment section" />
+  <div className="radio-container" style={{ width: windowWidth < 1000 ? "90%" : "40%" }}>
+          <TextField value={textValue} onChange={updateText} />
+    <h3 className="snug">{props.title}</h3>
+</div>
 
 )
 

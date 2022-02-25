@@ -4,6 +4,7 @@ import CheckboxOption from "./components/CheckboxOption";
 import RadioOption from "./components/RadioOption";
 import TextInput from "./components/TextInput";
 import { Button } from "@material-ui/core";
+import TextField from "./components/commentsection"
 
 export default function Categories(props) {
   const [reviewInfo, setReviewInfo] = useState("");
@@ -21,7 +22,6 @@ export default function Categories(props) {
     return array;
   };
   const categoryComponents = create_categories();
-
   const generate_review = () => {
     var localReviewString = "";
 
@@ -91,7 +91,7 @@ export default function Categories(props) {
         <div>
           <TextInput title="Movie/Tv Show Name" />
           {categoryComponents}
-          <TextInput title="comment section" /> 
+          <TextField title="Comment Section"/>
         </div>
       </div>
       <div className="button-centered">
