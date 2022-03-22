@@ -5,6 +5,7 @@ import RadioOption from "./components/RadioOption";
 import TextInput from "./components/TextInput";
 import { Button } from "@material-ui/core";
 import TextField from "./components/commentsection"
+import CommentField from "./components/commentsection";
 
 export default function Categories(props) {
   const [reviewInfo, setReviewInfo] = useState("");
@@ -36,6 +37,8 @@ export default function Categories(props) {
     appendCategoryTitle("Movie/Tv Show Name");
     localReviewString += `${sessionStorage.getItem("Movie/Tv Show Name")}\n`;
     localReviewString += "\n";
+    appendCategoryTitle("Comment section");
+    localReviewString += `${sessionStorage.getItem("Comment section")}\n`
 
     for (let i = 0; i < props.props.length; i++) {
       const categoryJson = props.props[i];
@@ -91,7 +94,8 @@ export default function Categories(props) {
         <div>
           <TextInput title="Movie/Tv Show Name" />
           {categoryComponents}
-          <TextField title="Comment Section"/>
+          <TextField title="Comment Section" />
+          {CommentField}
         </div>
       </div>
       <div className="button-centered">
