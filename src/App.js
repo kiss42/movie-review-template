@@ -1,22 +1,20 @@
 import "./App.css";
-import Categories from "./Categories";
-import config_json from "./review_temp/config.json";
+import ReviewForm from "./ReviewForm";
+import config from "./config/template.json";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2 className="App-header">{"Movie & TV Template "}</h2>
-        {/* <p className="App-header">☑ Awesome</p> */}
+        <h2 className="App-header">Movie & TV Review Template</h2>
       </header>
 
-      <div className="categories-container">
-        <Categories props={config_json.categories} />
-      </div>
+      <ReviewForm categories={config.categories} />
+
       <footer className="App-footer">
         <p className="signature">
-          Steven,Pierre if you like this check out {" "} 
-          <a href="https://vojtastruhar.github.io/steam-review-template/"> here</a>
+          Steven Pierre, {new Date().getFullYear()} (If you like this, check out
+          <a href="https://vojtastruhar.github.io/steam-review-template/"> here</a>)
         </p>
       </footer>
     </div>

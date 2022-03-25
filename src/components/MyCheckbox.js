@@ -24,7 +24,7 @@ export default function MyCheckbox(props) {
         <FormControlLabel
             value={props.props.index}
             control={<Checkbox color="primary"
-                onClick={toggle} />}
+            onClick={toggle} />}
             label={props.props.title}
             labelPlacement="end"
             checked={isChecked}
