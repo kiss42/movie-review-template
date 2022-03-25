@@ -1,38 +1,26 @@
-import './Option.css';
-import React from 'react';
-import MyCheckbox from './MyCheckbox';
+import './Option.css'
+import React from 'react'
+import Checkbox from './Checkbox'
 import { useWindowWidth } from '@react-hook/window-size'
+import PropTypes from 'prop-types'
 
-export default function CheckboxOption(props) {
-    props = props.props
-    const windowWidth = useWindowWidth()
+function CheckboxOption({category}) {
+	const windowWidth = useWindowWidth()
 
-    const create_checkboxes = () => {
-        var array = []
-        for (let i = 0; i < props.options.length; i++) {
-            const element = props.options[i];
-            array.push(<MyCheckbox props={{ title: element, index: i, category: props.title }} />)
-        }
-        return array
-    }
-    const checkboxes = create_checkboxes()
-
-    props.get_selected = () => {
-        var checked = []
-        checkboxes.forEach(element => {
-            if (element.props.props.isOn) {
-                checked.push(element.props.props.title)
-            }
-        });
-        return checked
-    }
-
-    return (
-        <div className="radio-container" style={{ width: (windowWidth < 1000 ? '90%' : '40%') }}>
-            <h3 className="snug">{props.title}</h3>
-            {checkboxes}
-        </div>
-    );
+	return (
+		<div className="radio-container" style={{ width: (windowWidth < 1000 ? '90%' : '40%') }}>
+			<h3 className="snug">{category.title}</h3>
+			{category.options.map((option, index) => (
+				<Checkbox key={option} option={{ title: option, index: index, category: category.title }} />
+			))}
+		</div>
+	)
 
 }
+
+CheckboxOption.propTypes = {
+	category: PropTypes.object.isRequired
+}
+
+export default CheckboxOption
 

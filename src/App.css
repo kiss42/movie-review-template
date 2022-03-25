@@ -1,25 +1,23 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 /* header */
-
 .app-header {
   background-color: #2261b3;
-  min-height: 8vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  gap: 10px;
   color: white;
+  padding: 20px;
 }
 
-h2.app-header {
-  min-height: auto;
-  margin-top: 1vmin;
-  margin-bottom: 1vmin;
+.app-header h2, .app-header h1 {
+  margin: 0;
+}
+
+.app-header h2 {
+  font-weight: normal;
+  font-size: 36px;
 }
 
 p.app-header {
@@ -34,7 +32,7 @@ div.categories-container {
   margin-bottom: 8px;
 }
 
-/*Commennt section */
+/*Comment section */
 .Comment-section {
   align-items: center;
   flex-direction: column;
@@ -44,7 +42,7 @@ div.categories-container {
 
 /* footer */
 .app-footer {
-  background-color: #1e2127;
+  background-color: #2261b3;
   min-height: auto;
   display: flex;
   flex-direction: column;
