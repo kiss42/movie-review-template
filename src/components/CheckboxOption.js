@@ -1,25 +1,42 @@
 import './Option.css'
 import React from 'react'
-import Checkbox from './Checkbox'
-import { useWindowWidth } from '@react-hook/window-size'
 import PropTypes from 'prop-types'
+import {Checkbox, FormControlLabel} from '@material-ui/core'
 
-function CheckboxOption({category}) {
-	const windowWidth = useWindowWidth()
+function CheckboxOption({category, handleSelectionChange}) {
+	let selectedOptions = React.useState(category.options.map(option => ({[option]: false})))
+
+	const handleChange = (event) => {
+		selectedOptions = selectedOptions.map(option => {
+			if (option[event.target.name]) {
+				return {
+					[event.target.name]: event.target.checked
+				}
+			}})
+
+		handleSelectionChange(event)
+	}
 
 	return (
-		<div className="radio-container" style={{ width: (windowWidth < 1000 ? '90%' : '40%') }}>
+		<div className="radio-container">
 			<h3 className="snug">{category.title}</h3>
-			{category.options.map((option, index) => (
-				<Checkbox key={option} option={{ title: option, index: index, category: category.title }} />
+			{category.options.map((option) => (
+				<FormControlLabel
+					key={option}
+					name={category.title}
+					value={option}
+					control={<Checkbox color="primary" onClick={handleChange} />}
+					label={option}
+					labelPlacement="end"
+				/>
 			))}
 		</div>
 	)
-
 }
 
 CheckboxOption.propTypes = {
-	category: PropTypes.object.isRequired
+	category: PropTypes.object.isRequired,
+	handleSelectionChange: PropTypes.func.isRequired
 }
 
 export default CheckboxOption

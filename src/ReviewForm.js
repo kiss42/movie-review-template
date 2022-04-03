@@ -1,34 +1,72 @@
 import './reviewForm.css'
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
+import { Button } from '@material-ui/core'
 import CheckboxOption from './components/CheckboxOption'
 import RadioOption from './components/RadioOption'
 import TextInput from './components/TextInput'
-import { Button } from '@material-ui/core'
-import CommentField from './components/CommentSection'
 import generateReview from './utility/generateReview'
 
+function initializeReview(categories){
+	const initialReview = {}
+	categories.forEach(category => { category.type === 'check' ?  initialReview[category.title] = [] :  initialReview[category.title] = '' })
+	return initialReview
+}
+
 export function ReviewForm({ categories }) {
-	const [reviewInfo, setReviewInfo] = useState('')
+	const [reviewResult, setReviewResult] = useState('')
+	const [reviewSelections, setReviewSelections] = useState()
+
+	useEffect(() => {
+		const emptyReview = initializeReview(categories)
+		setReviewSelections(emptyReview)
+	}, [])
+
+	const handleGenerateReview = () => {
+		setReviewResult(generateReview(reviewSelections))
+	}
+
+	const handleSelectionChange = (event) => {
+		setReviewSelections({
+			...reviewSelections,
+			[event.target.name]: event.target.value
+		})
+	}
+
+	const handleMultiSelectionChange = (event) => {
+		let newSelections
+		if (event.target.checked) {
+			newSelections = [...reviewSelections[event.target.name], event.target.value]
+		}
+		else {
+			newSelections = reviewSelections[event.target.name].filter(selection => selection !== event.target.value)
+		}
+
+		setReviewSelections({
+			...reviewSelections,
+			[event.target.name]: newSelections
+		})
+	}
 
 	return (
 		<div className="categories-container">
+			{console.log(reviewSelections)}
 			<div className="centered">
 				<div>
-					<TextInput title="Movie/Tv Show Name" />
+					<TextInput title="Movie/Series Name" handleSelectionChange={handleSelectionChange} />
 					{categories.map((category, index) => (
 						category.type === 'radio' ?
-							<RadioOption key={index} category={category} /> :
-							<CheckboxOption key={index} category={category} />
+							<RadioOption key={index} category={category} handleSelectionChange={handleSelectionChange} /> :
+							<CheckboxOption key={index} category={category} handleSelectionChange={handleMultiSelectionChange} />
 					))}
-					<CommentField title="Comment Section" />
+					<TextInput title="Comments" handleSelectionChange={handleSelectionChange} />
 				</div>
 			</div>
 			<div className="button-centered">
-				<Button variant="contained" color="primary" onClick={() => generateReview(setReviewInfo, categories)}>
+				<Button variant="contained" color="primary" onClick={handleGenerateReview}>
 					Generate Review
 				</Button>
-				{reviewInfo !== '' && <p className="review">{reviewInfo}</p>}
+				{reviewResult && <p className="review">{reviewResult}</p>}
 			</div>
 		</div>
 	)

@@ -1,28 +1,23 @@
 import './Option.css'
 import React from 'react'
-import { useWindowWidth } from '@react-hook/window-size'
 import { TextField } from '@material-ui/core'
 import PropTypes from 'prop-types'
 
-function TextInput({title}) {
-	const [textValue, setTextValue] = React.useState('')
-	const windowWidth = useWindowWidth()
+function TextInput({title, handleSelectionChange, multiline}) {
 
-	const updateText = (event) => {
-		setTextValue(event.target.value)
-		sessionStorage.setItem(title, event.target.value)
-	}
 
 	return (
-		<div className="radio-container" style={{ width: windowWidth < 1000 ? '90%' : '40%' }}>
+		<div className="radio-container">
 			<h3 className="snug">{title}</h3>
-			<TextField value={textValue} onChange={updateText} />
+			<TextField name={title} multiline={multiline} onChange={handleSelectionChange} />
 		</div>
 	)
 }
 
 TextInput.propTypes = {
-	title: PropTypes.string.isRequired
+	title: PropTypes.string.isRequired,
+	handleSelectionChange: PropTypes.func.isRequired,
+	multiline: PropTypes.bool
 }
 
 export default TextInput

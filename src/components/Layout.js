@@ -13,8 +13,8 @@ function Layout({ children }){
 			<footer className="app-footer">
 				<p className="signature">
                 Steven Pierre, {new Date().getFullYear()}
-                (If you like this, check out
-					<a href="https://vojtastruhar.github.io/steam-review-template/"> here</a>)
+					{' '}(If you like this, check out the
+					<a href="https://vojtastruhar.github.io/steam-review-template/"> original</a>)
 				</p>
 			</footer>
 		</div>
