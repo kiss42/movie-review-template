@@ -66,7 +66,7 @@ export default function Categories(props) {
     }
 
     // Credit
-    localReviewString += "\nGrab this review template here!  https://kiss42.github.io/my-app//\n";
+    localReviewString += "\nGrab this review template here!  https://kiss42.github.io/movie-review-template//\n";
 
     navigator.clipboard.writeText(localReviewString).then(
       function () {
