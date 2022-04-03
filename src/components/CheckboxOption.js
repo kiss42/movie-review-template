@@ -1,38 +1,43 @@
-import './Option.css';
-import React from 'react';
-import MyCheckbox from './MyCheckbox';
-import { useWindowWidth } from '@react-hook/window-size'
+import './Option.css'
+import React from 'react'
+import PropTypes from 'prop-types'
+import {Checkbox, FormControlLabel} from '@material-ui/core'
 
-export default function CheckboxOption(props) {
-    props = props.props
-    const windowWidth = useWindowWidth()
+function CheckboxOption({category, handleSelectionChange}) {
+	let selectedOptions = React.useState(category.options.map(option => ({[option]: false})))
 
-    const create_checkboxes = () => {
-        var array = []
-        for (let i = 0; i < props.options.length; i++) {
-            const element = props.options[i];
-            array.push(<MyCheckbox props={{ title: element, index: i, category: props.title }} />)
-        }
-        return array
-    }
-    const checkboxes = create_checkboxes()
+	const handleChange = (event) => {
+		selectedOptions = selectedOptions.map(option => {
+			if (option[event.target.name]) {
+				return {
+					[event.target.name]: event.target.checked
+				}
+			}})
 
-    props.get_selected = () => {
-        var checked = []
-        checkboxes.forEach(element => {
-            if (element.props.props.isOn) {
-                checked.push(element.props.props.title)
-            }
-        });
-        return checked
-    }
+		handleSelectionChange(event)
+	}
 
-    return (
-        <div className="radio-container" style={{ width: (windowWidth < 1000 ? '90%' : '40%') }}>
-            <h3 className="snug">{props.title}</h3>
-            {checkboxes}
-        </div>
-    );
-
+	return (
+		<div className="radio-container">
+			<h3 className="snug">{category.title}</h3>
+			{category.options.map((option) => (
+				<FormControlLabel
+					key={option}
+					name={category.title}
+					value={option}
+					control={<Checkbox color="primary" onClick={handleChange} />}
+					label={option}
+					labelPlacement="end"
+				/>
+			))}
+		</div>
+	)
 }
+
+CheckboxOption.propTypes = {
+	category: PropTypes.object.isRequired,
+	handleSelectionChange: PropTypes.func.isRequired
+}
+
+export default CheckboxOption
 

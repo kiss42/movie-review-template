@@ -1,36 +1,24 @@
-import './Option.css';
-import React from 'react';
-import { FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
-import { useWindowWidth } from '@react-hook/window-size'
+import './Option.css'
+import React from 'react'
+import { FormControlLabel, Radio, RadioGroup } from '@material-ui/core'
+import PropTypes from 'prop-types'
 
 
-export default function RadioOption(props) {
-    const windowWidth = useWindowWidth()
+export default function RadioOption({category, handleSelectionChange}) {
+	return (
+		<div className="radio-container" >
+			<h3 className="snug">{category.title}</h3>
+			<RadioGroup name={category.title} onChange={handleSelectionChange}>
+				{category.options.map(option => (
+					<FormControlLabel key={option} label={option}  value={option} control={<Radio color="primary" />}/>
+				))}
+			</RadioGroup>
+		</div>
+	)
+}
 
-    props = props.props
-    props.selectedState = ""
-
-    const radioClicked = (event) => {
-        props.selectedState = event.target.value
-        sessionStorage.setItem(props.title, event.target.value)
-    };
-
-    const choices = () => {
-        var array = []
-        for (let i = 0; i < props.options.length; i++) {
-            const element = props.options[i];
-            array.push(<FormControlLabel value={element} control={<Radio color="primary" />} label={element} />)
-        }
-        return array
-    }
-
-    return (
-        <div className="radio-container" style={{ width: (windowWidth < 1000 ? '90%' : '40%') }}>
-            <h3 className="snug">{props.title}</h3>
-            <RadioGroup onChange={radioClicked}>
-                {choices()}
-            </RadioGroup>
-        </div>
-    );
-};
+RadioOption.propTypes = {
+	category: PropTypes.object.isRequired,
+	handleSelectionChange: PropTypes.func.isRequired
+}
 
