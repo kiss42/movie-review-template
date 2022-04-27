@@ -31,7 +31,11 @@ export default function generateReview(reviewSelections){
 	})
 
 	// Credit
+<<<<<<< HEAD
 	localReviewString += '\nGrab this review template here!  https://kiss42.github.io/movie-review-template/\n'
+=======
+	localReviewString += '\nGrab this review template here!  https://kiss42.github.io/movie-review-template/'
+>>>>>>> 581a304af9b400324c283b0975ed2a7ce811eeca
 
 	let result = ''
 	navigator.clipboard.writeText(localReviewString).then(
