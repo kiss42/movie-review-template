@@ -1,101 +1,155 @@
 {
     "categories": [
         {
-            "title": "Visuals",
-            "type": "radio",
+            "title": "Genre",
+            "icon": "🎭",
+            "type": "check",
             "options": [
-                "Extremely Captivating",
-                "Beautiful",
-                "Good",
-                "Decent",
-                "Bad",
-                "Dont look too long at it",
-                "Straight ass"
-            ]
-        },
-        {
-            "title": "Plot",
-            "type": "radio",
-            "options": [
-                "Amazing plot ",
-                "its a nice story",
-                "It's just ok",
-                "Mehh",
-                "Watch paint dry instead",
-                "Just don't"
-            ]
-        },
-        {
-            "title": "Audio",
-            "type": "radio",
-            "options": [
-                "Eargasm",
-                "Very good",
-                "Good",
-                "Not too bad",
-                "Bad",
-                "I'm now deaf"
+                "Action",
+                "Comedy",
+                "Drama",
+                "Horror",
+                "Sci-Fi",
+                "Romance",
+                "Thriller",
+                "Animation",
+                "Documentary",
+                "Fantasy"
             ]
         },
         {
             "title": "Audience",
+            "icon": "👥",
             "type": "check",
             "options": [
                 "Kids",
                 "Teens",
-                "Adults"
+                "Young Adults",
+                "Adults",
+                "Everyone"
             ]
         },
-        
         {
-            "title": "Acting",
+            "title": "Visuals",
+            "icon": "🎨",
             "type": "radio",
             "options": [
-                " I want to fight the person who played them because now i cant tell them apart",
-                "Genuinely enjoyed it",
-                "Not bad",
-                "You are better off watch a pornstars acting",
-                "DRAGON BALL EVOLUTION TERRIBLE ACTING 🤮"
+                "Jaw-dropping — every frame is a painting",
+                "Stunning visuals throughout",
+                "Looks great",
+                "Solid, nothing remarkable",
+                "Passable but forgettable",
+                "Rough around the edges",
+                "Visually painful"
+            ]
+        },
+        {
+            "title": "Plot",
+            "icon": "📖",
+            "type": "radio",
+            "options": [
+                "Masterfully written — left me speechless",
+                "Gripping story with great twists",
+                "Solid, enjoyable story",
+                "Average — nothing new",
+                "All over the place",
+                "Predictable and boring",
+                "No plot detected"
+            ]
+        },
+        {
+            "title": "Acting",
+            "icon": "🎬",
+            "type": "radio",
+            "options": [
+                "Award-worthy performances across the board",
+                "Genuinely impressive cast",
+                "Solid acting overall",
+                "Hit or miss depending on the actor",
+                "Wooden and unconvincing",
+                "Cringe-worthy from start to finish"
             ]
         },
         {
             "title": "Characters",
+            "icon": "🧑‍🤝‍🧑",
             "type": "radio",
             "options": [
-                "OMG WHY THEY PLAY WITH MY HEART LIKE THAT",
-                "Wow they were nice",
-                "They were cool i guess",
-                "Jeez why are they so bad",
-                "Who Told Them They Could Act"
+                "Instantly iconic — I'm emotionally attached",
+                "Well-developed and memorable",
+                "Likeable enough",
+                "Could have used more depth",
+                "Hard to care about any of them",
+                "Who wrote these people?"
             ]
         },
-        
+        {
+            "title": "Audio & Soundtrack",
+            "icon": "🎵",
+            "type": "radio",
+            "options": [
+                "The soundtrack lives in my head rent-free",
+                "Excellent score and sound design",
+                "Good audio, nothing to complain about",
+                "Decent but unremarkable",
+                "Sound design felt off",
+                "Actively distracting"
+            ]
+        },
+        {
+            "title": "Pacing",
+            "icon": "⏱️",
+            "type": "radio",
+            "options": [
+                "Perfect — never a dull moment",
+                "Well-paced with great flow",
+                "Mostly good, a few slow spots",
+                "Could have been tightened up",
+                "Dragged on way too long",
+                "Rushed — needed more time to breathe"
+            ]
+        },
         {
             "title": "Length",
+            "icon": "⏳",
             "type": "radio",
             "options": [
-                "Long As Hell but worth it every min",
-                "Not that long but good",
-                "Average",
-                "This shit short",
-                "damn i just blinked and its gone"
+                "Long but every minute was earned",
+                "Just the right length",
+                "Could have been shorter",
+                "Felt longer than it was",
+                "Way too long",
+                "Over before it really started"
             ]
         },
         {
-            "title": "Should I see",
+            "title": "Rewatchability",
+            "icon": "🔁",
             "type": "radio",
             "options": [
-                "YES GET OFF YOUR ASS AND WATCH",
-                "Worth the price",
-                "Wait for disney overlord to buy the studio",
-                "Stream it",
-                "Not recommended",
-                "Just send money to my cash app and ill tell u the whole movie in a Gilbert Gottfried voice"
+                "Instant classic — watching it again tonight",
+                "Definitely rewatchable",
+                "Maybe once more down the line",
+                "One and done",
+                "Already trying to forget it"
             ]
         },
-     
         {
-            "title": "? / 10",
+            "title": "Would Recommend?",
+            "icon": "🤔",
+            "type": "radio",
+            "options": [
+                "Drop everything and watch it NOW",
+                "Absolutely worth your time",
+                "Yes, but manage your expectations",
+                "Only if you have nothing else on",
+                "Stream it for free if you must",
+                "Save yourself the time"
+            ]
+        },
+        {
+            "title": "Score",
+            "icon": "⭐",
             "type": "radio",
             "options": [
                 "1",

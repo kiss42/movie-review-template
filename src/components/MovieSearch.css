@@ -1,0 +1,41 @@
+/* ── Search result options ── */
+.movie-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.movie-option-poster {
+    width: 36px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.movie-option-poster--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1e293b;
+    font-size: 18px;
+}
+
+.movie-option-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.movie-option-title {
+    font-size: 14px;
+    color: #e2e8f0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.movie-option-meta {
+    font-size: 12px;
+    color: #94a3b8;
+}

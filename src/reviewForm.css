@@ -1,37 +1,60 @@
-p.inner {
-  background-color: tomato;
-};
-
-div.section {
-  text-align: left;
-  align-items: left;
-  border-style: solid;
-  border-radius: 8px;
-  border-width: 2px;
-};
-
-.centered {
-  height: 10vh; /* Magic here */
+/* ── Form wrapper ── */
+.form-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 24px;
+  padding-bottom: 8px;
 }
 
+/* ── Button row ── */
 .button-centered {
-  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  flex-wrap: nowrap;
-  margin: 8px;
+  gap: 16px;
+  padding: 32px 0 24px;
 }
 
-p.review {
-  width: 40%;
+.button-group {
   display: flex;
-  text-align: center;
+  gap: 12px;
+  flex-wrap: wrap;
   justify-content: center;
-  flex-direction: column;
-  margin: 8px;
+}
+
+/* ── Result message ── */
+p.review {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+  padding: 16px 24px;
+  color: #a5b4fc;
+  font-size: 15px;
+  text-align: center;
+  max-width: 420px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* ── Mobile: keep the action buttons within reach ── */
+@media (max-width: 480px) {
+  .button-centered {
+    position: sticky;
+    bottom: 0;
+    background: rgba(15, 17, 23, 0.92);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid #1e293b;
+    padding: 14px 0;
+    margin: 0 -12px;
+  }
+
+  .button-group {
+    width: 100%;
+  }
+
+  .button-group .MuiButton-root {
+    flex: 1 1 auto;
+  }
 }

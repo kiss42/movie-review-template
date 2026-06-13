@@ -1,22 +1,64 @@
+/* ── Category card ── */
 div.radio-container {
-    margin: auto;
-    /* Width manually overriden depending on window width */
-    width: 40%; 
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    border: solid;
-    margin-top: 8px;
-    border-radius: 6px;
-    border-width: 2px;
-    border-color: slategray;
-    padding: 4px;
-    padding-left: 12px;
-    background-color:transparent;
+    background: #1e293b;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+div.radio-container:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 2px 16px rgba(99, 102, 241, 0.08);
+}
+
+/* ── Category title ── */
 .snug {
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+/* ── Option pills — bigger touch targets, clear selected state ── */
+div.radio-container .MuiFormControlLabel-root {
+    margin: 2px 0;
+    padding: 8px 14px 8px 6px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+div.radio-container .MuiFormControlLabel-root:hover {
+    background-color: rgba(99, 102, 241, 0.08);
+}
+
+div.radio-container .MuiFormControlLabel-root:active {
+    transform: scale(0.98);
+}
+
+div.radio-container .MuiFormControlLabel-root:has(.Mui-checked) {
+    background-color: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+div.radio-container .MuiFormControlLabel-root:has(.Mui-checked) .MuiFormControlLabel-label {
+    color: #c7d2fe;
+    font-weight: 600;
+}
+
+/* Score row — make it horizontal */
+.score-row .MuiRadioGroup-root {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 4px;
+}
+
+.score-row .MuiFormControlLabel-root {
+    margin: 2px !important;
+    padding: 8px 16px !important;
 }
